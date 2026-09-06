@@ -1,0 +1,62 @@
+1. Configure as Variáveis de Ambiente:
+
+Bash
+cp .env.example .env
+Edite o arquivo .env para ajustar as credenciais de acesso do admin e convidados.
+
+2. Suba os containers Docker:
+
+Bash
+docker compose up -d --build
+
+3. Execute o Script de Migração do Banco de Dados:
+
+Bash
+docker exec -i mysql_db mysql -u root -proot_password galeria_db < schema.sql
+
+4. Ajuste as permissões de gravação da pasta de mídias (Linux):
+
+Bash
+sudo chown -R $USER:www-data galeria/
+sudo chmod -R 775 galeria/
+
+5. Acesse a aplicação:
+Abra no seu navegador: http://localhost:8080
+
+📂 Estrutura do Projeto
+Plaintext
+├── .env.example          # Modelo das variáveis de ambiente
+├── .gitignore            # Regras de exclusão do Git
+├── Dockerfile            # Imagem PHP 8.2 com Apache e dependências
+├── docker-compose.yml    # Orquestração dos serviços App e MySQL
+├── index.php             # Controladora principal e lógica de negócio
+├── schema.sql            # DDL do banco de dados (Tabelas, FKs e Índices)
+├── view.php              # Camada de apresentação (HTML/Tailwind)
+└── galeria/              # Diretório de armazenamento das mídias
+
+
+
+📄 Licença
+Este projeto está sob a licença MIT.
+
+
+---
+
+### **4. Comandos para Publicação no GitHub**
+
+Execute no seu terminal dentro do diretório do projeto:
+
+```bash
+# Inicializar o repositório
+git init
+
+# Adicionar todos os arquivos (respeitando o .gitignore)
+git add .
+
+# Criar o primeiro commit
+git commit -m "feat: release inicial da galeria multimídia com MySQL, Docker e RBAC"
+
+# Vincular ao seu repositório do GitHub e enviar
+git branch -M main
+git remote add origin git@github.com:seu-usuario/galeria-multimidia.git
+git push -u origin main

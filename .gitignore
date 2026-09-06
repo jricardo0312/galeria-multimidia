@@ -1,0 +1,15 @@
+# Arquivos de Configuração Sensíveis
+.env
+
+# Diretórios de Uploads e Mídias
+galeria/*/
+!galeria/.gitkeep
+
+# Arquivos do Sistema Operacional e IDEs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Dados Persistentes do Docker
+.docker/
