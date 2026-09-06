@@ -60,3 +60,6 @@ git commit -m "feat: release inicial da galeria multimídia com MySQL, Docker e 
 git branch -M main
 git remote add origin git@github.com:seu-usuario/galeria-multimidia.git
 git push -u origin main
+
+# Este é um projetinho de final de semana. 
+# Qualquer um sinta-se a vontade para evoluir o projeto.  
